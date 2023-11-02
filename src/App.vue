@@ -1,9 +1,7 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
-  <component :is="this.$route.meta.layout" />
+  <h1>Hello</h1>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
