@@ -1,9 +1,16 @@
 <template>
-  <q-layout view="lHh lpr lFf" container :style="style" class="font-regular-bosch">
+  <q-layout
+    view="lHh lpr lFf"
+    container
+    :style="style"
+    class="font-regular-bosch"
+  >
     <q-page-container class="bg-white fixed-center width-100 border">
       <q-header v-if="props.title" class="border-top">
         <q-toolbar class="font-bold-bosch bg-white primary-bosch border-top">
-          <q-toolbar-title class="ellipsis margin-12-12">{{ props.title }}</q-toolbar-title>
+          <q-toolbar-title class="ellipsis margin-12-12">{{
+            props.title
+          }}</q-toolbar-title>
           <slot name="toolbarActions"></slot>
           <Button
             v-close-popup="closePopup !== 0"
@@ -13,13 +20,13 @@
             flat
             dense
             button-icon="mdi-close"
-            @click="props.clickClose"
+            @click="$emit('onClose')"
           >
           </Button>
         </q-toolbar>
         <q-separator style="background-color: #e0e0e0" />
       </q-header>
-      <q-page class="row q-pa-md border-bottom" style="min-height: fit-content;">
+      <q-page class="row q-pa-md border-bottom" style="min-height: fit-content">
         <div class="col-12">
           <slot name="content"></slot>
         </div>
@@ -29,7 +36,12 @@
           :scroll-offset="150"
           :offset="[18, 18]"
         >
-          <q-btn v-if="showFloatButton" fab icon="keyboard_arrow_up" color="primary" />
+          <q-btn
+            v-if="showFloatButton"
+            fab
+            icon="keyboard_arrow_up"
+            color="primary"
+          />
         </q-page-scroller>
       </q-page>
     </q-page-container>
@@ -42,8 +54,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import Button from "../button/Button.vue";
+import { computed } from 'vue';
+import Button from '../button/Button.vue';
 
 const props = defineProps<{
   title?: string;
@@ -54,19 +66,21 @@ const props = defineProps<{
   isLoading?: boolean;
   icon?: string;
   disableButton?: boolean;
-  clickClose?: (e: any) => void;
   closePopup?: number;
   disableFloatButton?: boolean;
 }>();
+
+defineEmits(['onClose']);
 const showFloatButton = computed(() => {
   return !props.disableFloatButton;
 });
 
 const style = computed(() => {
-  const heightString = props.height !== undefined ? "height:" + props.height + ";" : "";
-  const widthString = props.width !== undefined ? "width:" + props.width + ";" : "";
-  const scroll = props.scroll !== undefined ? "overflow:" + props.scroll + ";" : "";
-  return heightString + widthString + "max-width:100%;";
+  const heightString =
+    props.height !== undefined ? 'height:' + props.height + ';' : '';
+  const widthString =
+    props.width !== undefined ? 'width:' + props.width + ';' : '';
+  return heightString + widthString + 'max-width:100%;';
 });
 </script>
 

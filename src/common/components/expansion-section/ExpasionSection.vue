@@ -1,9 +1,9 @@
 <template>
   <q-expansion-item
-      :icon="icon"
-      :label="label"
-      :group="group"
-      :expand-separator="separator"
+    :icon="icon"
+    :label="label"
+    :group="group"
+    :expand-separator="separator"
   >
     <div class="row">
       <slot name="content"></slot>
@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue';
+import { ref } from 'vue';
 
 interface IProps {
   label: string;
@@ -29,7 +29,10 @@ const separator = ref(props.separator);
 </script>
 
 <style lang="scss">
-.q-expansion-item, .q-item-type, .q-expansion-item--collapsed, .q-expansion-item--standard {
+.q-expansion-item,
+.q-item-type,
+.q-expansion-item--collapsed,
+.q-expansion-item--standard {
   border-radius: 10px;
 }
 </style>
