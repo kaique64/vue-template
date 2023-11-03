@@ -12,23 +12,20 @@ import 'quasar/src/css/index.sass';
 import { AppFullscreen, Loading, LocalStorage, Notify, Quasar } from 'quasar';
 import '@quasar/extras/mdi-v6/mdi-v6.css';
 
-import AuthService from './common/services/integration/AuthService';
-import NoAccessPage from '@/pages/NoAccessPage.vue';
+// import AuthService from './common/services/integration/AuthService';
 
 const run = async () => {
-  const authService = new AuthService();
-  if (!authService.isAuthenticated) {
-    const response = await authService.instance.handleRedirectPromise();
-    if (response !== null) {
-      authService.loginWithResponse(response);
-    } else {
-      await authService.login();
-    }
-  }
+  // const authService = new AuthService();
+  // if (!authService.isAuthenticated) {
+  //   const response = await authService.instance.handleRedirectPromise();
+  //   if (response !== null) {
+  //     authService.loginWithResponse(response);
+  //   } else {
+  //     await authService.login();
+  //   }
+  // }
 
-  const app = createApp(
-    !(await authService.isAuthorized()) ? NoAccessPage : App
-  );
+  const app = createApp(App);
 
   const config = {
     plugins: { Notify, LocalStorage, AppFullscreen, Loading }, // import Quasar plugins and add here
@@ -42,12 +39,6 @@ const run = async () => {
     },
   };
   const pinia = createPinia();
-
-  const modules = import.meta.globEager('/src/modules/*.ts');
-
-  // install all modules under `modules/`
-  // @ts-ignore
-  Object.values(modules).forEach((module) => module.install?.(app));
 
   // In case of redeployed frontend the currently active users might have problems to dynamically load JS modules.
   // For that problem we catch the resulting error and force a reloading of the page.
