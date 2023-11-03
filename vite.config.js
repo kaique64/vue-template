@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { fileURLToPath, URL } from 'node:url';
 
 import { defineConfig } from 'vite';
@@ -26,5 +27,8 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
+  },
+  server: {
+    port: 3000,
   },
 });

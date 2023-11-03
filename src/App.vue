@@ -2,7 +2,7 @@
   <q-layout
     view="hHh LPR lFf"
     class="font-regular-bosch bg-white"
-    style="min-height: 60vh"
+    style="min-height: 100vh"
   >
     <RouterView />
   </q-layout>
