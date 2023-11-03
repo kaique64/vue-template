@@ -1,5 +1,5 @@
 <template>
-  <h1>Template</h1>
+  <h2 class="font-regular-bosch">Conheça nossas histórias</h2>
 </template>
 
 <script setup lang="ts"></script>

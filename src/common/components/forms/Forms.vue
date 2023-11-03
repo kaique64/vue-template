@@ -290,7 +290,7 @@ import { computed, ref } from 'vue';
 import InputField from '@/common/component/input/InputField.vue';
 import InputSelect from '@/common/component/input/InputSelect.vue';
 import InputCurrency from '@/common/component/input/InputCurrency.vue';
-import { TFieldValue } from '../../type/TFieldValue';
+import { TFieldValue } from '../../types/TFieldValue';
 
 defineEmits(['enterKeypress', 'submitAction']);
 

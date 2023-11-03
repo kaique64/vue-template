@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /// <reference types="vite/client" />
 interface ImportMetaEnv {
   readonly VITE_BASE_URL: string;
@@ -29,10 +30,16 @@ interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
 
-declare module "*.vue" {
-  import { DefineComponent } from "vue";
+declare module '*.vue' {
+  import { DefineComponent } from 'vue';
   const component: DefineComponent<{}, {}, any>;
   export default component;
 }
 
-declare module "velocity-animate";
+declare module 'velocity-animate';
+
+declare var process: {
+  env: {
+    NODE_ENV: string;
+  };
+};

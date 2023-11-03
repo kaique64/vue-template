@@ -1,19 +1,19 @@
 <template>
   <q-input
-      v-model="modelValue"
-      dense
-      outlined
-      :disable="disable"
-      :label="label"
-      type="text"
-      @update:model-value="updateModelValue"
+    v-model="modelValue"
+    dense
+    outlined
+    :disable="disable"
+    :label="label"
+    type="text"
+    @update:model-value="updateModelValue"
   />
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import {toUpperCase} from "@/common/component/util/CheckText";
-import { capitalizeText } from "../util/CapitalizeText";
+import { ref, watch } from 'vue';
+import { toUpperCase } from '@/common/components/util/CheckText';
+import { capitalizeText } from '../util/CapitalizeText';
 
 interface IProps {
   model: any;
@@ -49,7 +49,7 @@ function formatInputValue(inputValue: string) {
 }
 
 watch(modelValue, (newValue: string) => {
-  emit("update:model", formatInputValue(newValue));
+  emit('update:model', formatInputValue(newValue));
 });
 
 const updateModelValue = (newValue: any) => {
