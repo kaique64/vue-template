@@ -4,6 +4,7 @@ import { Quasar, Notify, Dialog } from 'quasar';
 import piniaPersist from 'pinia-plugin-persist';
 
 import App from './App.vue';
+import './index.css';
 
 import axios from 'axios';
 import VueAxios from 'vue-axios';
