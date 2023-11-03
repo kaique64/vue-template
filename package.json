@@ -2,8 +2,11 @@
   "name": "frontend",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
+		"dev:localhost": "vite --mode localhost",
+		"build:localhost": "vite build --mode localhost --base=http://localhost:3000/",
+		"build:dev": "vite build --mode development --base=https://app-rvt-dev-001.azurewebsites.net/",
+		"build:qa": "vite build --mode qa --base=https://app-rvt-qa-001.azurewebsites.net/",
+		"build:prod": "vue-tsc && vite build",
     "test": "vitest",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.ts,.tsx,.cjs,.mjs --fix --ignore-path .gitignore"
