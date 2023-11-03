@@ -1,5 +1,5 @@
 <template>
-  <h2 class="font-regular-bosch">Conheça nossas histórias</h2>
+  <RouterView />
 </template>
 
 <script setup lang="ts"></script>
