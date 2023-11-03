@@ -8,6 +8,11 @@ module.exports = {
     'eslint:recommended',
     '@vue/eslint-config-prettier',
   ],
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+  },
   rules: {
     'prettier/prettier': [
       'warn',
@@ -16,8 +21,6 @@ module.exports = {
       },
     ],
     'vue/multi-word-component-names': 'off',
-  },
-  parserOptions: {
-    ecmaVersion: 'latest',
+    'vue/valid-define-emits': 'warn',
   },
 };

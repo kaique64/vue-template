@@ -21,7 +21,11 @@
       "noFallthroughCasesInSwitch": true,
       "noImplicitAny": false,
       "allowJs": true,
+      "noImplicitThis": false,
     },
     "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+    "paths": {
+      "@/*": ["./src/*"],
+    },
     "references": [{ "path": "./tsconfig.node.json" }]
 }
